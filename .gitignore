@@ -1,0 +1,3 @@
+htmlcov
+.coverage
+.pytest_cache
