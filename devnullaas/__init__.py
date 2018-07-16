@@ -11,7 +11,7 @@ class NullStream(RawIOBase):
         self.timeout = timeout
         if endpoint is not None:
             self.session = requests.Session()
-            self.session.headers = {"user-agent": "py-devnullaas v0.0.1"}
+            self.session.headers = {"user-agent": "py-devnullaas v1.0.0 +https://pypi.org/project/devnullaas"}
 
     def write(self, data):
         if self.closed:

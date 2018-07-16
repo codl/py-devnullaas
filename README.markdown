@@ -5,7 +5,9 @@ and other DAAS endpoints.
 
 ## Installation
 
-![section tbd](https://f.codl.fr/1807/construction-gif-056.gif)
+```
+pip install devnullaas
+```
 
 ## Usage
 

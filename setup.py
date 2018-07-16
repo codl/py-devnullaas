@@ -5,7 +5,7 @@ with open("README.markdown", "r") as fh:
 
 setuptools.setup(
     name="devnullaas",
-    version="0.0.1",
+    version="1.0.0",
     author="codl",
     author_email="codl@codl.fr",
     description=
