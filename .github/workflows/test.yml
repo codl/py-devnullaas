@@ -57,7 +57,13 @@ jobs:
           coverage combine
           coverage html
           coverage report --fail-under=60
-      - if: ${{ secrets.SMOKESHOW_AUTH_KEY }}
+      - name: check for secrets
+        id: secrets
+        run: |
+          test "$SMOKESHOW_AUTH_KEY" != "" && echo '::set-output name=has-secrets::true'
+        env:
+          SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
+      - if: ${{ steps.secrets.output.has-secrets }}
         run: |
           pip install smokeshow
           smokeshow upload htmlcov
