@@ -26,5 +26,5 @@ pytest-cov==2.9.0
     # via -r dev-requirements.in
 six==1.15.0
     # via packaging
-wcwidth==0.1.9
+wcwidth==0.2.6
     # via pytest
