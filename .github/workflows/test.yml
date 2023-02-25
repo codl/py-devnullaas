@@ -59,8 +59,8 @@ jobs:
           coverage report --fail-under=60
       - if: ${{ secrets.SMOKESHOW_AUTH_KEY }}
         run: |
-        pip install smokeshow
-        smokeshow upload htmlcov
+          pip install smokeshow
+          smokeshow upload htmlcov
         env:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
           SMOKESHOW_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
