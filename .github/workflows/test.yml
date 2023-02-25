@@ -63,3 +63,5 @@ jobs:
           coverage html
           coverage report --fail-under=60
       - run: smokeshow upload htmlcov
+        env:
+          SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
