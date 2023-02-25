@@ -20,7 +20,7 @@ pytest==7.2.1
     # via
     #   -r dev-requirements.in
     #   pytest-cov
-pytest-cov==2.9.0
+pytest-cov==2.10.1
     # via -r dev-requirements.in
 six==1.15.0
     # via packaging
