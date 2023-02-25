@@ -60,12 +60,12 @@ jobs:
       - name: check for secrets
         id: secrets
         run: |
-          test -n "$SMOKESHOW_AUTH_KEY" && echo 'has-secrets=1' >> $GITHUB_OUTPUT
+          test -n "$SMOKESHOW_AUTH_KEY" && echo 'has_secrets=1' >> $GITHUB_OUTPUT
         env:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
       - name: dump step data
         run: echo '${{toJSON(steps)}}'
-      - if: ${{ steps.secrets.output.has-secrets == 1 }}
+      - if: ${{ steps.secrets.output.has_secrets == '1' }}
         name: upload to smokeshow
         run: |
           pip install smokeshow
