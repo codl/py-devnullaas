@@ -61,10 +61,10 @@ jobs:
         id: secrets
         run: |
           test -n "$SMOKESHOW_AUTH_KEY" && echo 'has-secrets=true' >> $GITHUB_OUTPUT
-          test -n "$SMOKESHOW_AUTH_KEY" && echo 'hello!'
         env:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
-      - if: ${{ steps.secrets.output.has-secrets }}
+      - if: ${{ steps.secrets.output.has-secrets == 'true' }}
+        name: upload to smokeshow
         run: |
           pip install smokeshow
           smokeshow upload htmlcov
