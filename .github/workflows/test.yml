@@ -65,7 +65,7 @@ jobs:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
       - name: dump step data
         run: echo '${{toJSON(steps)}}'
-      - if: ${{ steps.secrets.output.has_secrets == '1' }}
+      - if: ${{ steps.secrets.outputs.has_secrets == 1 }}
         name: upload to smokeshow
         run: |
           pip install smokeshow
