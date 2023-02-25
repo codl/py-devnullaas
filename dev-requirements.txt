@@ -14,7 +14,7 @@ packaging==20.4
     # via pytest
 pluggy==0.13.1
     # via pytest
-py==1.8.1
+py==1.11.0
     # via pytest
 pyparsing==2.4.7
     # via packaging
