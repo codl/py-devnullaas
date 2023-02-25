@@ -10,13 +10,9 @@ coverage==5.1
     # via -r dev-requirements.in
 iniconfig==2.0.0
     # via pytest
-packaging==20.4
+packaging==23.0
     # via pytest
 pluggy==0.13.1
     # via pytest
-pyparsing==2.4.7
-    # via packaging
 pytest==7.2.1
     # via -r dev-requirements.in
-six==1.16.0
-    # via packaging
