@@ -60,7 +60,7 @@ jobs:
       - name: check for secrets
         id: secrets
         run: |
-          test "$SMOKESHOW_AUTH_KEY" != "" && echo '::set-output name=has-secrets::true'
+          test "$SMOKESHOW_AUTH_KEY" != "" && echo 'has-secrets=true' >> $GITHUB_OUTPUT
         env:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
       - if: ${{ steps.secrets.output.has-secrets }}
