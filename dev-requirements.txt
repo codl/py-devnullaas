@@ -7,7 +7,9 @@
 attrs==19.3.0
     # via pytest
 coverage==5.1
-    # via pytest-cov
+    # via -r dev-requirements.in
+exceptiongroup==1.1.0
+    # via pytest
 iniconfig==2.0.0
     # via pytest
 packaging==20.4
@@ -17,10 +19,8 @@ pluggy==0.13.1
 pyparsing==2.4.7
     # via packaging
 pytest==7.2.1
-    # via
-    #   -r dev-requirements.in
-    #   pytest-cov
-pytest-cov==2.9.0
     # via -r dev-requirements.in
 six==1.15.0
     # via packaging
+tomli==2.0.1
+    # via pytest

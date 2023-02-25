@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -34,4 +34,31 @@ jobs:
         pip install -r requirements.txt -r dev-requirements.txt
     - name: Test with pytest
       run: |
-        pytest
+        coverage run --include=devnullaas -m pytest
+    - name: rename coverage
+      run: |
+        mkdir coverage
+        mv .coverage coverage/.coverage.py${{ matrix.python-version }}
+    - name: store coverage files
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: coverage
+
+  coverage:
+    needs:
+      - test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - uses: actions/download-artifact@v2
+        with:
+          name: coverage
+      - run: pip install coverage smokeshow
+      - run: |
+          coverage combine
+          coverage html
+          coverage report --fail-under=60
+      - run: smokeshow upload htmlcov
