@@ -63,8 +63,6 @@ jobs:
           test -n "$SMOKESHOW_AUTH_KEY" && echo 'has_secrets=1' >> $GITHUB_OUTPUT
         env:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
-      - name: dump step data
-        run: echo '${{toJSON(steps)}}'
       - if: ${{ steps.secrets.outputs.has_secrets == 1 }}
         name: upload to smokeshow
         run: |
