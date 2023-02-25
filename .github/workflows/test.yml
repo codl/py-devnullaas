@@ -52,12 +52,15 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: coverage
-      - run: pip install coverage smokeshow
+      - run: pip install coverage
       - run: |
           coverage combine
           coverage html
           coverage report --fail-under=60
-      - run: smokeshow upload htmlcov
+      - if: ${{ secrets.SMOKESHOW_AUTH_KEY }}
+        run: |
+        pip install smokeshow
+        smokeshow upload htmlcov
         env:
           SMOKESHOW_AUTH_KEY: ${{ secrets.SMOKESHOW_AUTH_KEY }}
           SMOKESHOW_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
