@@ -21,13 +21,13 @@ jobs:
       name: Restore pip cache
       with:
         path: ~/.cache/pip
-        key: pip-${{ hashFiles('requirements.txt', 'requirements-dev.txt') }}
+        key: pip-${{ hashFiles('requirements.txt', 'dev-requirements.txt') }}
         restore-keys: |
           pip-
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt -r requirements-dev.txt
+        pip install -r requirements.txt -r dev-requirements.txt
     - name: Test with pytest
       run: |
         pytest
