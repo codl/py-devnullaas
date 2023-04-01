@@ -14,5 +14,5 @@ packaging==23.0
     # via pytest
 pluggy==0.13.1
     # via pytest
-pytest==7.2.1
+pytest==7.2.2
     # via -r dev-requirements.in
